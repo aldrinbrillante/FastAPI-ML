@@ -2,26 +2,17 @@
 from fastapi import FastAPI
 import uvicorn
 
-from sklearn.datasets import load_iris
-from sklearn.naive_bayes import GaussianNB
-
-# Loading Iris Dataset
-iris = load_iris()
-
-# Getting features and targets from the dataset
-X = iris.data
-Y = iris.target
-
-# Fitting our Model on the dataset
-clf = GaussianNB()
-clf.fit(X, Y)
-
+# Declaring our FastAPI instance
 app = FastAPI()
+
+# Defining path operation for root endpoint
 
 
 @app.get('/')
 def main():
     return {'message': 'Welcome to GeeksforGeeks!'}
+
+# Defining path operation for /name endpoint
 
 
 @app.get('/{name}')
